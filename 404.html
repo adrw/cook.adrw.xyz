@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <script type="text/javascript">
       var newDomain = "http://cook.alexanders.xyz"
-      var newLoc = newDomain + window.location.pathname + window.location.hash + window.location.search
+      var newPath = window.location.pathname
+      if (newPath == "/recipes") {
+        newPath = "/"
+      }
+      var newLoc = newDomain + newPath + window.location.hash + window.location.search
       if (window.location.hash != "#noredirect" && window.location.search != "?noredirect") {
         window.location.replace(newLoc)
       }
